@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">ethnic_productroleimage_form.ethnic_productroleimage_form_data_source</item>
+            <item name="deps" xsi:type="string">ethnic_productroleimage_form.ethnic_productroleimage_form_data_source</item>
+        </item>
+        <item name="role" xsi:type="string" translate="true">Manage Product Image Role</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">ethnic_productroleimage_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="array">
+                <item name="name" xsi:type="string">back</item>
+                <item name="label" xsi:type="string" translate="true">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="url" xsi:type="string">productroleimage/index/index</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+            </item>
+            <item name="save" xsi:type="array">
+                <item name="name" xsi:type="string">save</item>
+                <item name="label" xsi:type="string" translate="true">Save</item>
+                <item name="class" xsi:type="string">save primary</item>
+                <item name="sortOrder" xsi:type="number">30</item>
+                <item name="data_attribute" xsi:type="array">
+                    <item name="mage-init" xsi:type="array">
+                        <item name="buttonAdapter" xsi:type="array">
+                            <item name="actions" xsi:type="array">
+                                <item name="0" xsi:type="array">
+                                    <item name="targetName" xsi:type="string">ethnic_productroleimage_form.ethnic_productroleimage_form</item>
+                                    <item name="actionName" xsi:type="string">save</item>
+                                    <item name="params" xsi:type="array">
+                                        <item name="0" xsi:type="string">true</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </item>
+        </item>
+
+    </argument>
+
+    <!-- Data Source Configuration -->
+    <dataSource name="ethnic_productroleimage_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Ethnic\ProductRoleImage\Ui\DataProvider\ProductRole\FormDataProvider</argument>
+            <argument name="name" xsi:type="string">ethnic_productroleimage_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="productroleimage/index/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <!-- Fieldset: General -->
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string"/> <!-- Optional empty label -->
+            </item>
+        </argument>
+
+        <!-- Hidden Field: ID -->
+        <field name="id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                </item>
+            </argument>
+        </field>
+
+        <!-- Field: Role -->
+        <field name="role">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Enter Product Role</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-label-format" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+
+        <!-- Checkbox Field: Show in Frontend -->
+        <field name="show_in_frontend">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Show in Frontend</item>
+                    <item name="formElement" xsi:type="string">checkbox</item>
+                    <item name="dataType" xsi:type="string">boolean</item>
+                    <item name="source" xsi:type="string">general</item>
+                    <item name="valueMap" xsi:type="array">
+                        <item name="true" xsi:type="number">1</item>
+                        <item name="false" xsi:type="number">0</item>
+                    </item>
+                    <item name="value" xsi:type="number">0</item> <!-- Default unchecked -->
+                    <item name="prefer" xsi:type="string">checkbox</item>
+                </item>
+            </argument>
+        </field>
+
+    </fieldset>
+
+</form>

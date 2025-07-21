@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework/Acl/etc/acl.xsd">
+
+    <acl>
+        <resources>
+            <!-- Root admin resource -->
+            <resource id="Magento_Backend::admin">
+                
+                <!-- Custom admin permission for Product Role Image management -->
+                <resource id="Ethnic_ProductRoleImage::main"
+                          title="Manage Product Role Images"
+                          sortOrder="10"/>
+                          
+            </resource>
+        </resources>
+    </acl>
+</config>
+
+
+

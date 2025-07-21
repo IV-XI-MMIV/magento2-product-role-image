@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!--
+        Dependency Injection configuration for DataProvider used in grid listing
+        This assigns specific constructor arguments to the DataProvider class
+    -->
+    <type name="Ethnic\ProductRoleImage\Ui\DataProvider\ProductRole\DataProvider">
+        <arguments>
+            <argument name="name" xsi:type="string">ethnic_productroleimage_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </arguments>
+    </type>
+
+    <!--
+        Dependency Injection configuration for FormDataProvider used in edit form
+    -->
+    <type name="Ethnic\ProductRoleImage\Ui\DataProvider\ProductRole\FormDataProvider">
+        <arguments>
+            <argument name="name" xsi:type="string">ethnic_productroleimage_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </arguments>
+    </type>
+
+    <!--
+        Inject EavSetupFactory and ModuleDataSetupInterface into Save controller
+        Used for generating attribute_code from role label
+    -->
+    <type name="Ethnic\ProductRoleImage\Controller\Adminhtml\Index\Save">
+        <arguments>
+            <argument name="eavSetupFactory" xsi:type="object">Magento\Eav\Setup\EavSetupFactory</argument>
+            <argument name="moduleDataSetup" xsi:type="object">Magento\Framework\Setup\ModuleDataSetupInterface</argument>
+        </arguments>
+    </type>
+
+</config>

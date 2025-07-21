@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/menu.xsd">
+
+    <menu>
+        <add 
+            id="Ethnic_ProductRoleImage::main_menu"
+            title="Product Role Image"
+            module="Ethnic_ProductRoleImage"
+            sortOrder="100"
+            parent="Magento_Backend::stores_attributes"
+            action="productroleimage/index/index"
+            resource="Ethnic_ProductRoleImage::main_menu"
+        />
+    </menu>
+</config>
